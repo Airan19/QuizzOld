@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <a href="{% url 'about' %}" class='button'>ABOUT US</a>
+    <style>
+        .button {
+            background-color: teal;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          h1 {text-align: center;}
+          section {text-align: center;}
+    </style>
+
 </head>
 <body>
-<h3> This is the home page.</h3>
-<h1>Changes done by Riya.</h1>
-<h1>Changes done by Bharat.</h1>
+<h1> This is the Home Page.</h1>
+<!-- <h3>Changes done by Riya.</h3> -->
+<!-- <h3>Changes done by Bharat.</h3> -->
 <ol>
     <h3>Tasks</h3>
     <li>Profile page</li>
