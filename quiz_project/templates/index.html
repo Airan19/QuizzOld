@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
-    <a href="{% url 'about' %}" class='button'>ABOUT US</a>
     <style>
         .button {
             background-color: teal;
@@ -20,18 +22,28 @@
           h1 {text-align: center;}
           section {text-align: center;}
     </style>
-
 </head>
 <body>
+<a href="{% url 'about' %}" class='button'>ABOUT US</a>
 <h1> This is the Home Page.</h1>
-<!-- <h3>Changes done by Riya.</h3> -->
-<!-- <h3>Changes done by Bharat.</h3> -->
 <ol>
     <h3>Tasks</h3>
     <li>Profile page</li>
-    <li>About us page</li>
+    <li><strike>About us page</strike></li>
     <li>Quiz Page</li>
     <li>Dashboard</li>
 </ol>
+<details>
+    This page will act both as home_page as well as login/sign-up page. Front-End waalo you can divide this page
+    in two parts and plan accordingly...
+    <br>
+    Login/Sign-Up button<br>
+    Login form --> Username Box, Password Box, Forget Password, Login/Done button<br>
+    Sign-Up form --> First Name, Last Name, Email, Password, Confirm Password<br>
+    Username will be automatically assigned.
+</details>
+
+<h2 style="color:red">If you are on this page, then you must remember database banana hai abhi...</h2>
+
 </body>
 </html>
