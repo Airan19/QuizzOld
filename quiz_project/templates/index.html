@@ -13,19 +13,34 @@
 </head>
 
 <body>
-    <div id="upper">
-        <a href="{% url 'about' %}" class='button'>ABOUT US</a>
-        <h1> This is the Task Page now, click <a href="{% url 'home' %}">HOME Page</a> to open </h1>
+    <ul>
+        <li><a href="{% url 'home' %}">HOME</a></li>
+        <li><a href="#">QUIZ</a></li>
+        <li><a href="#">LEADERBOARD</a></li>
+        <li style="float:right"><a href="{% url 'about' %}" class='button' class="active" >ABOUT</a></li>
+    </ul>
 
+    <div id="upper">
+        <h1> This is the Task Page now, click HOME </h1>
+
+        <!--
         <ol>
             <h3>Tasks</h3>
             <li>Profile page</li>
             <li><strike>About us page</strike></li>
             <li>Quiz Page</li>
             <li>Dashboard</li>
-        </ol>
-
+            <li>LEADERBOARD </li>
+        </ol>  -->
+        <ol>
+        <h2>Tasks</h2>
+        <h4>Profile page</h4>
+        <h4><strike>About us page</strike></h4>
+        <h4>Quiz Page</h4>
+        <h4>Dashboard</h4>
+        <h4>LEADERBOARD </h4>
         <button onclick="warn()">HIT ME 4 a Surprise</button>
+        </ol>
     </div>
 
     <div id="warning">
