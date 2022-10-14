@@ -20,6 +20,7 @@ from user.views import about_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('h1/',about_view,name='about'),
+    path('home/', views.home, name='home'),
+    path('', views.task, name='task'),
+    path('about/',about_view,name='about'),
 ]

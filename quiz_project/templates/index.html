@@ -5,45 +5,38 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
-    <style>
-        .button {
-            background-color: teal;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-          }
-          h1 {text-align: center;}
-          section {text-align: center;}
-    </style>
+    <title>Task Page</title>
+    <!--<style></style> instead of internal css, we are using external file and below written command is to load
+    static folder by giving this django command. -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
+
 <body>
-<a href="{% url 'about' %}" class='button'>ABOUT US</a>
-<h1> This is the Home Page.</h1>
-<ol>
-    <h3>Tasks</h3>
-    <li>Profile page</li>
-    <li><strike>About us page</strike></li>
-    <li>Quiz Page</li>
-    <li>Dashboard</li>
-</ol>
-<details>
-    This page will act both as home_page as well as login/sign-up page. Front-End waalo you can divide this page
-    in two parts and plan accordingly...
-    <br>
-    Login/Sign-Up button<br>
-    Login form --> Username Box, Password Box, Forget Password, Login/Done button<br>
-    Sign-Up form --> First Name, Last Name, Email, Password, Confirm Password<br>
-    Username will be automatically assigned.
-</details>
+    <div id="upper">
+        <a href="{% url 'about' %}" class='button'>ABOUT US</a>
+        <h1> This is the Task Page now, click <a href="{% url 'home' %}">HOME Page</a> to open </h1>
 
-<h2 style="color:red">If you are on this page, then you must remember database banana hai abhi...</h2>
+        <ol>
+            <h3>Tasks</h3>
+            <li>Profile page</li>
+            <li><strike>About us page</strike></li>
+            <li>Quiz Page</li>
+            <li>Dashboard</li>
+        </ol>
 
+        <button onclick="warn()">HIT ME 4 a Surprise</button>
+    </div>
+
+    <div id="warning">
+        <button onclick="warn()">BACK 🤣 😒🤔</button>
+
+        <h2 style="color:red">If you are on this page, then you must remember database banana hai abhi...</h2>
+        <h2>Schema</h2>
+
+        <img src="../static/images/schema.jpg">
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/index.js'%}"></script>
 </body>
 </html>
