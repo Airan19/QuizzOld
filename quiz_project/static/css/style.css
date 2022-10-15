@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url('../templates/Images/LoginBg.jpg'); 
+    background-image: url('../images/LoginBg.jpg');
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
@@ -98,24 +98,24 @@ h1{
 h4{
     text-align: center;
 }
-form{
+#submitForm{
     width: 300px;
     margin-left: 20px;
 }
-form label{
+#submitForm label{
     display: flex;
     margin-top: 20px;
     font-size: 18px;
 }
-form input{
+form input, #submitForm input{
     width: 100%;
     padding: 7px;
     border: none;
-    border: 1px solid gray;
+    border-bottom: 1px solid white;
     border-radius: 6px;
     outline: none;
 }
-input[type="button"]{
+#submitForm input[type="button"]{
     width: 320px;
     height: 35px;
     margin-top: 20px;
@@ -124,7 +124,7 @@ input[type="button"]{
     color: #fff;
     font-size: 18px;
 }
-p{
+#submitForm p, p{
     text-align: center;
     padding-top: 20px;
     font-size: 15px;

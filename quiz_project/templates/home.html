@@ -6,9 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <a href="{% url 'task'%}">Back to Task Page.</a>
+    <div class="loginbox">
+
     {% if request.method == 'POST'%}
     <h5>Username is {{username}}</h5>
     <h5>Password is {{password}}</h5>
@@ -18,16 +22,24 @@
            console.log(x);
     </script>
     {% else %}
+        <img src="../static/images/avatar.png" class="avatar">
+        <h1>Login Here</h1>
     <form id="submitForm" action="{% url 'home' %}" method="post">
         {% csrf_token %}
-        <h3>Login</h3>
-        <label for="username">Username</label>
-        <input id='username' name="username" type="text">
-        <label for="password">Password</label>
-        <input id="password" name="password" type="text">
-        <input type="submit" value="submit" >
+<!--        <label for="username">Username</label>-->
+        <input id="username"  name="username" type="text" placeholder="Enter username">
+<!--        <label for="password">Password</label>-->
+        <input id="password"  name="password" type="password" placeholder="Enter password">
+        <input type="submit" value="Login" >
+        <a href="#">Lost your password?</a><br>
+        <a href="#">Don't have an account?</a>
+
     </form>
+    <p class="para-2">Not have an account? <a href="signup.html">Sign Up Here</a></p>
+
     {% endif %}
+
+    </div>
     <details>
             This page will act both as home_page as well as login/sign-up page. Front-End waalo you can divide this page
             in two parts and plan accordingly...
