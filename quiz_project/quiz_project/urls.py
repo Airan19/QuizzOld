@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from . import views   ## './dot' here means the file we are importing is in the same folder.
 from django.urls import path , include
-from user.views import about_view
+# from user import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home, name='home'),
     path('', views.task, name='task'),
-    path('about/',about_view,name='about'),
+    path('about/',include('user.urls'),name='about'),
 ]
