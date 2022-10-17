@@ -2,5 +2,5 @@ from . import views   ## './dot' here means the file we are importing is in the 
 from django.urls import path
 
 urlpatterns = [
-    path('about/', views.about_view,name='about'),
+    path('', views.about_view,name='about'),
 ]
