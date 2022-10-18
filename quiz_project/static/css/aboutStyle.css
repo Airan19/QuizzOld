@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @import url('https://fonts.googleapis.com/css2?family=lobster&display=swap');
 *{
     margin: 0px;
@@ -37,6 +38,25 @@
     float: left;
     width: 55%;
 }
+=======
+.body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #add;
+}
+.row{
+    width: 80%;
+    padding-top: 100px;
+    display: block;
+    margin: auto;
+}
+>>>>>>> Stashed changes
 .image-section{
     float: right;
     width: 40%;
@@ -45,6 +65,7 @@
     width: 100%;
     height: auto;
 }
+<<<<<<< Updated upstream
 .content .article h3{
     color: #a3a3a3;
     font-size: 17px;
@@ -95,4 +116,15 @@
    background-color: #88941e;
    transition: 1s ease;
    transform: rotate(360deg); 
+=======
+.content{
+    float:left;
+    width: 55%;
+}
+.content h1{
+    font-size: 90px;
+    letter-spacing: 3.5px;
+    margin-top: 25px;
+    color: #222;
+>>>>>>> Stashed changes
 }
