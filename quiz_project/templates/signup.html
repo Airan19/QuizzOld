@@ -1,28 +1,44 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto"
-    rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="signup-box">
         <h1>Sign Up</h1>
         <h4>It's free and only takes a minute</h4>
-        <form>
+        <form onsubmit="return checkPassword(this)" method="post" action="{% url 'sign-up' %}">
+            {% csrf_token %}
             <label>First Name</label>
-            <input type="text" placeholder=""> 
+            <input name="first_name" type="text" placeholder="">
             <label>Last Name</label>
-            <input type="text" placeholder="">
+            <input name="last_name" type="text" placeholder="">
             <label>Email</label>
-            <input type="email" placeholder="">
-            <label>Password</label>
-            <input type="password" placeholder="">
-            <label>Confirm Password</label>
-            <input type="password" placeholder="">
-            <input type="button" value="Submit">
+            <input name="email" type="email" placeholder="">
+            <input name="password" id="password" type="password" placeholder="Password">
+            <input name="cpassword" id="cnf" type="password" placeholder="Confirm Password">
+            <br>
+            <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+          <br>
+            <input type="submit"  value="Submit">
+
         </form>
+        <script>
+            $(document).ready(function() {
+              $("#cnf").on('keyup', function() {
+                var password = $("#password").val();
+                var confirmPassword = $("#cnf").val();
+                if (password != confirmPassword)
+                  $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+                else
+                  $("#CheckPasswordMatch").html("Password matched!").css("color", "green");
+              });
+            });
+        </script>
         <p>By clicking the Sign Up button, you agree to our <br>
         <a href="#">Terms and Conditions</a> and <a href="#">Policy and Privacy</a>
     </p>
