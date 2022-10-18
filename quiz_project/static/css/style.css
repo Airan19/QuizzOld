@@ -83,10 +83,12 @@ h1{
 }
 
 .signup-box{
-    width: 360px;
+    width: 25%;
     height: 650px;
+    padding: 20px 40px;
     margin: auto;
-    background-color: white;
+    background-color: black;
+    color:white;
     border-radius: 3px;
     margin-top: 10px;
 }

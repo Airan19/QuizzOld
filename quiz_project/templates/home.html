@@ -10,34 +10,29 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <a href="{% url 'task'%}">Back to Task Page.</a>
+    <a href="{% url 'dashboard'%}">Back to Dashboard.</a>
     <div class="loginbox">
 
-    {% if request.method == 'POST'%}
-    <h5>Username is {{username}}</h5>
-    <h5>Password is {{password}}</h5>
-    <h4>User logged in successfully.</h4>
-    <script>
-           var x = document.getElementById('submitForm')['username'].value;
-           console.log(x);
-    </script>
-    {% else %}
+<!--    <h5>Username is {{username}}</h5>-->
+<!--    <h5>Password is {{password}}</h5>-->
+<!--    <h4>User logged in successfully.</h4>-->
         <img src="../static/images/avatar.png" class="avatar">
         <h1>Login Here</h1>
+
     <form id="submitForm" action="{% url 'home' %}" method="post">
         {% csrf_token %}
 <!--        <label for="username">Username</label>-->
-        <input id="username"  name="username" type="text" placeholder="Enter username">
+        <input id="email"  name="email" type="email" placeholder="Enter email" required>
 <!--        <label for="password">Password</label>-->
-        <input id="password"  name="password" type="password" placeholder="Enter password">
+        <input id="password"  name="password" type="password" placeholder="Enter password" required>
         <input type="submit" value="Login" >
         <a href="#">Lost your password?</a><br>
         <a href="#">Don't have an account?</a>
 
     </form>
-    <p class="para-2">Not have an account? <a href="signup.html">Sign Up Here</a></p>
-
-    {% endif %}
+    <p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
+    <p class="para-2">Email -- > test1@gmail.com</p>
+    <p class="para-2">Password -- > bharatpro1</p>
 
     </div>
     <details>
