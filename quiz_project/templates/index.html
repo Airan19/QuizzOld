@@ -1,29 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Task Page</title>
     <!--<style></style> instead of internal css, we are using external file and below written command is to load
     static folder by giving this django command. -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
 
-<body>
+  <body>
     <ul>
-        <li><a href="{% url 'home' %}">HOME</a></li>
-        <li><a href="#">QUIZ</a></li>
-        <li><a href="#">LEADERBOARD</a></li>
-        <li style="float:right"><a href="{% url 'about' %}" class='button' class="active" >ABOUT</a></li>
+      <li><a href="{% url 'home' %}">HOME</a></li>
+      <li><a href="#">QUIZ</a></li>
+      <li><a href="#">LEADERBOARD</a></li>
+      <li style="float: right">
+        <a href="{% url 'about' %}" class="button" class="active">ABOUT</a>
+      </li>
     </ul>
 
     <div id="upper">
-        <h1> Welcome {{user}}, this is the Dashboard now </h1>
+      <h1>Welcome {{user}}, this is the Dashboard now</h1>
 
-        <!--
+      <!--
         <ol>
             <h3>Tasks</h3>
             <li>Profile page</li>
@@ -32,25 +36,28 @@
             <li>Dashboard</li>
             <li>LEADERBOARD </li>
         </ol>  -->
-        <ol>
+      <ol>
         <h2>Tasks</h2>
         <h4>Profile page</h4>
         <h4><strike>About us page</strike></h4>
         <h4>Quiz Page</h4>
         <h4>Dashboard</h4>
-        <h4>LEADERBOARD </h4>
+        <h4>LEADERBOARD</h4>
         <button onclick="warn()">HIT ME 4 a Surprise</button>
-        </ol>
+      </ol>
     </div>
 
     <div id="warning">
-        <button onclick="warn()">BACK 🤣 😒🤔</button>
+      <button onclick="warn()">BACK 🤣 😒🤔</button>
 
-        <h2 style="color:red">If you are on this page, then you must remember database banana hai abhi...</h2>
-        <h2>Schema</h2>
-        <img src="../static/images/schema.jpg">
+      <h2 style="color: red">
+        If you are on this page, then you must remember database banana hai
+        abhi...
+      </h2>
+      <h2>Schema</h2>
+      <img src="../static/images/schema.jpg" />
     </div>
 
     <script type="text/javascript" src="{% static 'js/index.js'%}"></script>
-</body>
+  </body>
 </html>
