@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from user.models import *
+from user.forms import UserForm
 
 
 def dashboard(request):
@@ -21,13 +22,7 @@ def home(request):
             # else:
 
         return redirect('home')
-        return render(request, 'home.html', {'username':email, 'password':password})
-    # if request.method == "POST":
-    #     pDict = request.POST.copy()
-    #     form = EmployeeForm(pDict)  # if not valid shows error with previous post values in corresponding field
-    #     if form.is_valid():
-    #         form.save()
-    #         return HttpResponseRedirect('')
+        # return render(request, 'home.html', {'username':email, 'password':password})
     return render(request, 'home.html')
 
 
