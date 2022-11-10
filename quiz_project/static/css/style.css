@@ -23,8 +23,9 @@ body {
   z-index: -10;
 }
 .beforesplash img {
-  width: 1350px;
-  height: 650px;
+  width: 10px;
+  /*width: 1350px;
+  height: 650px;*/
 }
 @keyframes fadeIn {
   to {
