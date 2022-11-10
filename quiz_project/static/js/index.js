@@ -1,4 +1,4 @@
-function warn(){
+/*function warn(){
     var x = document.getElementById('warning')
     if (x.style.display == 'none'){
     x.style.display = 'block';
@@ -8,4 +8,4 @@ function warn(){
     document.getElementById('upper').style.display = 'block';
     }
 
-}
+}*/
