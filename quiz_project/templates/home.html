@@ -10,17 +10,19 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <a href="{% url 'dashboard'%}">Back to Dashboard.</a>
     <div class="loginbox">
 
-<!--    <h5>Username is {{username}}</h5>-->
-<!--    <h5>Password is {{password}}</h5>-->
-<!--    <h4>User logged in successfully.</h4>-->
         <img src="../static/images/avatar.png" class="avatar">
         <h1>Login Here</h1>
 
     <form id="submitForm" action="{% url 'home' %}" method="post">
         {% csrf_token %}
+
+        {% if  messages%}
+        {% for message in messages %}
+        <h3 style="color:white;">{{message}}</h3>
+        {% endfor %}
+        {% endif %}
 <!--        <label for="username">Username</label>-->
         <input id="email"  name="email" type="email" placeholder="Enter email" required>
 <!--        <label for="password">Password</label>-->

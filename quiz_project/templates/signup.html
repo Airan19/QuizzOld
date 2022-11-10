@@ -11,6 +11,7 @@
     <div class="signup-box">
         <h1>Sign Up</h1>
         <h4>It's free and only takes a minute</h4>
+
         <form onsubmit="return checkPassword(this)" method="post" action="{% url 'sign-up' %}">
             {% csrf_token %}
             <label>First Name</label>

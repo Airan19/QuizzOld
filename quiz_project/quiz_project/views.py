@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from user.models import *
 from user.forms import UserForm
+from django.contrib import messages
 
 
-def dashboard(request):
-    user = request.GET['user']
+def dashboard(request, user_id):
+    # user = request.GET['user']
+    user = UserDb.objects.get(id=int(user_id))
     return render(request, 'index.html', {'user':user})
 
 
@@ -16,10 +18,10 @@ def home(request):
         user_db = UserDb.objects.filter(email=email).first()
         if user_db:
             if user_db.password == password:
-                user = user_db.first_name + ' ' + user_db.last_name
-                url = '/dashboard?user={}'.format(user)  ##just for temporary use.
-                return redirect(url)
-            # else:
+                user_id = user_db.id
+                return redirect('dashboard', user_id)
+            else:
+                messages.error(request, 'username or password not correct')
 
         return redirect('home')
         # return render(request, 'home.html', {'username':email, 'password':password})
@@ -32,11 +34,21 @@ def about_us(request):
 
 def sign_up(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password = request.POST['password']
-        user = first_name + ' ' + last_name
-        url = '/dashboard?user={}'.format(user) ##just for temporary use.
-        return redirect(url)
+        print(request.POST)
+        return
+        form = UserForm(request.POST or None)
+        if form.is_valid():
+            print(UserDb.objects.all())
+            form.save()
+            print(UserDb.objects.all())
+            messages.success(request, ('Successfully signed-up.'))
+            user = 'dummy'
+            return render(request, 'index.html', {'user': user})
     return render(request, 'signup.html')
+
+
+def delete(request, id):
+    item = UserDb.objects.get(id=id)
+    item.delete()
+    messages.success(request, 'User removed successfully.')
+    return redirect('home')
