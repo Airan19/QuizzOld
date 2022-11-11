@@ -131,7 +131,7 @@ footer .wave {
   left: 0;
   width: 100%;
   height: 100px;
-  background: url(../static/images/wave.png);
+  background: url(../images/wave.png);
   display: flex;
   background-size: 1000px 100px;
 }
