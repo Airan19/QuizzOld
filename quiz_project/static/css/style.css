@@ -154,16 +154,60 @@ input[type="password"] {
   margin: auto;
   background-color: black;
   color: white;
-  border-radius: 3px;
+  border-radius: 10px;
   margin-top: 10px;
+}
+.signup-box p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.signup-box input {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.signup-box input[type="text"],
+input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+.signup-box input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+.signup-box input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.signup-box a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 10px;
+  color: darkgrey;
+}
+.signup-box a:hover {
+  color: #ffc107;
 }
 h1 {
   text-align: center;
-  padding-top: 15px;
+  padding-top: 19px;
   color: rgb(165, 124, 124);
 }
 h4 {
   text-align: center;
+  margin-bottom: 10px;
 }
 #submitForm {
   width: 300px;
@@ -174,13 +218,14 @@ h4 {
   display: flex;
   margin-top: 20px;
   font-size: 18px;
+  border-bottom: 10px;
 }
 form input,
 #submitForm input {
   width: 100%;
-  padding: 7px;
+  padding: 3px;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 10px solid white;
   border-radius: 6px;
   outline: none;
 }
@@ -198,13 +243,14 @@ p {
   text-align: center;
   padding-top: 20px;
   font-size: 15px;
+  margin-top: 10px;
 }
 
 .para-2 {
   text-align: center;
   color: white;
   font-size: 15px;
-  margin-top: -10px;
+  margin-top: 10px;
 }
 .para-2 a {
   color: #49c1a2;

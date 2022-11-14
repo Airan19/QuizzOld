@@ -10,7 +10,7 @@
 <body>
     <div class="signup-box">
         <h1>Sign Up</h1>
-        <h4>It's free and only takes a minute</h4>
+        <h4>It's free and only takes a minute !</h4>
 
         <form onsubmit="return checkPassword(this)" method="post" action="{% url 'sign-up' %}">
             {% csrf_token %}
@@ -43,8 +43,9 @@
         <p>By clicking the Sign Up button, you agree to our <br>
         <a href="#">Terms and Conditions</a> and <a href="#">Policy and Privacy</a>
     </p>
-    </div>
     <p class="para-2">Already have an account? <a href="Login.html">Login here</a></p>
+    </div>
+    
     
 </body>
 </html>
