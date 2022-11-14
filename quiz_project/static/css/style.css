@@ -85,6 +85,131 @@ nav a:hover {
   background-size: cover;
   display: flex;
 }
+
+.loginbox {
+  width: 420px;
+  height: 420px;
+  background: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 15px 30px;
+  border-radius: 10%;
+}
+h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+  color: rgb(244, 249, 246);
+}
+.loginbox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.loginbox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.loginbox input[type="text"],
+input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+.loginbox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.loginbox a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+.loginbox a:hover {
+  color: #ffc107;
+}
+.signup-box {
+  width: 25%;
+  height: 650px;
+  padding: 20px 40px;
+  margin: auto;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+h1 {
+  text-align: center;
+  padding-top: 15px;
+  color: rgb(165, 124, 124);
+}
+h4 {
+  text-align: center;
+}
+#submitForm {
+  width: 300px;
+  margin-left: 20px;
+}
+#submitForm label {
+  color: #f3f7f8;
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
+}
+form input,
+#submitForm input {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 6px;
+  outline: none;
+}
+#submitForm input[type="button"] {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: #089a76;
+  color: #fff;
+  font-size: 18px;
+}
+#submitForm p,
+p {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.para-2 {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  margin-top: -10px;
+}
+.para-2 a {
+  color: #49c1a2;
+}
+
 footer {
   margin-top: 220px;
   position: absolute;
