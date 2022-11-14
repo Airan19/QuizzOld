@@ -95,7 +95,7 @@ nav a:hover {
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 15px 30px;
+  padding: 10px 30px;
   border-radius: 10%;
 }
 h1 {

@@ -66,47 +66,10 @@
 <p class="para-2">Password -- > bharatpro1</p>
 </div>
 <!--form ends--->
-
+        </div>
       </div>
     </div>
-      <!--</div> for form
-
-      <div class="loginbox">
-        <img src="../static/images/avatar.png" class="avatar" />
-        <h1>Login Here</h1>
-        <form id="submitForm" action="{% url 'home' %}" method="post">
-          {% csrf_token %} {% if messages%} {% for message in messages %}
-          <h3 style="color: white">{{message}}</h3>
-          {% endfor %} {% endif %}
-                 <label for="username">Username</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Enter email"
-            required
-          />
-          <label for="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter password"
-            required
-          />
-          <input type="submit" value="Login" />
-          <a href="#">Lost your password?</a><br />
-          <a href="#">Don't have an account?</a>
-        </form>
-        <p class="para-2">
-          Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a>
-        </p>
-        <p class="para-2">Email -- > test@gmail.com</p>
-        <p class="para-2">Password -- > bharatpro1</p>
-
-        form ends-->
-      </div>
-    </div>
+  </div>
     <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
   </body>
 
