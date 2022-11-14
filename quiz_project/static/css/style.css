@@ -80,7 +80,7 @@ nav a:hover {
 .bgimg img {
   width: 1350px;
   height: 780px;
-  background-position: center;
+  background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
