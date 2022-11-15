@@ -16,12 +16,13 @@ def home(request):
         email = request.POST['email']
         password = request.POST['password']
         user_db = UserDb.objects.filter(email=email).first()
+        print(user_db)
         if user_db:
             if user_db.password == password:
                 user_id = user_db.id
                 return redirect('dashboard', user_id)
-            else:
-                messages.error(request, 'username or password not correct')
+        else:
+            messages.error(request, 'username or password not correct')
 
         return redirect('home')
         # return render(request, 'home.html', {'username':email, 'password':password})
