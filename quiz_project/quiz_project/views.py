@@ -10,6 +10,9 @@ def dashboard(request, user_id):
     user = UserDb.objects.get(id=int(user_id))
     return render(request, 'index.html', {'user':user})
 
+def landing_page(request):
+    return render(request, 'home.html')
+
 
 def home(request):
     if request.method == 'POST':
@@ -26,7 +29,7 @@ def home(request):
 
         return redirect('home')
         # return render(request, 'home.html', {'username':email, 'password':password})
-    return render(request, 'home.html')
+    return render(request, 'login.html')
 
 
 def about_us(request):
