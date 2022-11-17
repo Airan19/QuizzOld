@@ -6,12 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  position: relative;
   font-family: "Cabin", sans-serif;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  flex-direction: column;
 }
 .splash {
   top: 0;
@@ -42,7 +37,7 @@ body {
 }
 nav {
   background: #02010f;
-  padding: 4px 20px;
+  padding: 5px 20px;
   display: flex;
   align-items: center;
 }
@@ -82,11 +77,6 @@ nav a:hover {
   font-size: 30px;
   display: none;
 }
-/* .bgimg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-} */
 .bgimg img {
   width: 1350px;
   height: 780px;
@@ -94,53 +84,6 @@ nav a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-}
-.heading {
-  color: #e8f8f5;
-  position: absolute;
-  top: 200px;
-  text-align: center;
-  left: 250px;
-  font-size: 30px;
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 10px #e21d7c, 0 0 20px #e9539c, 0 0 40px #e9539c,
-    0 0 80px #e9539c, 0 0 120px #e9539c;
-}
-
-.btn {
-  font-family: "Cabin", sans-serif;
-  position: absolute;
-  top: 58%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #0d5439;
-  color: #a8b4d1;
-  border: none;
-  border-width: 0.5px;
-  font-size: 40px;
-  border-radius: 12px;
-  padding: 5px 10px;
-}
-.btn a {
-  font-family: "Cabin", sans-serif;
-  color: #a8b4d1;
-  text-decoration: none;
-  text-align: center;
-}
-.btn:hover {
-  background-color: #1f988a;
-}
-.btn a:hover {
-  color: #06371b;
-}
-.btn a {
-  position: relative;
-  color: #03e9f4;
-  display: inline block;
-  text-decoration: none;
-  transition: 0.5s;
-  text-shadow: 0 0 10px #e21d7c, 0 0 20px #e9539c, 0 0 40px #e9539c,
-    0 0 80px #e9539c, 0 0 120px #e9539c;
 }
 
 .loginbox {

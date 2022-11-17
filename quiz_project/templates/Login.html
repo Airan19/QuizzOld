@@ -1,25 +1,114 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Login Form Design</title>
+    <title>login-Page | Quizz</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width" />
 
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-    <body>
-      <div class="loginbox">
-        <img src="../static/images/avatar.png" class="avatar" />
-        <h1>Login Here</h1>
-        <form>
-          <p>Username</p>
-          <input type="text" name="" placeholder="Enter Username" />
-          <p>Password</p>
-          <input type="password" name="" placeholder="Enter Password" />
-          <input type="submit" name="" value="Login" />
-          <a href="#">Lost your password?</a><br />
-          <a href="#">Don't have an account?</a>
-        </form>
-      </div>
-      <p class="para-2">
-        Not have an account? <a href="signup.html">Sign Up Here</a>
-      </p>
-    </body>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <script
+      type="module"
+      src=" https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js "
+    ></script>
   </head>
+
+  <body>
+    <div class="beforesplash">
+      <img src="../static/images/home1.webp" />
+    </div>
+
+    <div class="splash">
+      <div class="fade-in">
+        <!-- for nav bar -->
+        <nav>
+          <div class="logo">
+            <a href="{% url 'home' %}">
+              <img src="../static/images/logo1.jpg" alt="logo" />Quizz</a
+            >
+          </div>
+
+          <div class="toggle">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+          </div>
+          <ul class="menu">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="#">Quizz</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+        <!-------nav ends---------->
+
+        <div class="bgimg">
+          <img src="../static/images/home2.jpg" />
+        <!--form starts-->
+        <div class="loginbox">
+         <h1>Login Here</h1>
+          <form id="submitForm" action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            {% if  messages%}
+            {% for message in messages %}
+  <h3 style="color:white;">{{message}}</h3>
+ {% endfor %}
+  {% endif %}
+ <label for="email">Username</label>
+  <input id="email"  name="email" type="email" placeholder="Enter email" required>
+<label for="password">Password</label>
+  <input id="password"  name="password" type="password" placeholder="Enter password" required>
+  <input type="submit" value="Login" >
+  <a href="#">Lost your password?</a><br>
+</form>
+<p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
+<p class="para-2">Email -- > test@gmail.com</p>
+<p class="para-2">Password -- > bharatpro</p>
+</div>
+<!--form ends--->
+        </div>
+      </div>
+    </div>
+  </div>
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+  </body>
+
+  <!--footer starts---->
+  <footer>
+    <!--<div class="splash">
+    <div class="fade-in">-->
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+      <ul class="social_icons">
+        <li>
+          <a href="https://www.facebook.com"
+            ><ion-icon name="logo-facebook"></ion-icon
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com"
+            ><ion-icon name="logo-twitter"></ion-icon
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com"
+            ><ion-icon name="logo-linkedin"></ion-icon
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com"
+            ><ion-icon name="logo-instagram"></ion-icon
+          ></a>
+        </li>
+      </ul>
+      <p>
+        <ion-icon name="at-outline">2022</ion-icon>2022 | Quizz | All Rights
+        Reserved
+      </p>
+    </div>
+  </footer>
+  <!--footer ends--->
 </html>

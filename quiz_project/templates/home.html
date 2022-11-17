@@ -42,37 +42,27 @@
         </nav>
         <!-------nav ends---------->
 
-        <div class="bgimg">
-          <img src="../static/images/home2.jpg" />
-        <!--form starts-->
-        <div class="loginbox">
-         <h1>Login Here</h1>
-          <form id="submitForm" action="{% url 'home' %}" method="post">
-            {% csrf_token %}
-            {% if  messages%}
-            {% for message in messages %}
-  <h3 style="color:white;">{{message}}</h3>
- {% endfor %}
-  {% endif %}
- <label for="email">Username</label>
-  <input id="email"  name="email" type="email" placeholder="Enter email" required>
-<label for="password">Password</label>
-  <input id="password"  name="password" type="password" placeholder="Enter password" required>
-  <input type="submit" value="Login" >
-  <a href="#">Lost your password?</a><br>
-</form>
-<p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
-<p class="para-2">Email -- > test@gmail.com</p>
-<p class="para-2">Password -- > bharatpro</p>
-</div>
-<!--form ends--->
+        <div class="container">
+          <div class="row">
+            <div class="bgimg">
+              <img src="../static/images/home2.jpg">
+              <h1 class="heading">" The REAL TEST of a HUMAN is NOT what HE KNOWS ,<br>BUT it is....<br>what HE
+                  LEARNS "
+                  <br>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  </h1>
+            </div>
+          </div>  
+          <button class="btn"><a href="login.html">
+           LOGIN
+            </a></button>
         </div>
-      </div>
-    </div>
-  </div>
+  
     <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
   </body>
-
   <!--footer starts---->
   <footer>
     <!--<div class="splash">
