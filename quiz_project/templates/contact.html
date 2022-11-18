@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>contact-us Page | Quizz </title>
+  <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+    <script
+      type="module"
+      src=" https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js "
+    ></script>
+</head>
+
+<body>
+  <!-- for nav bar -->
+  <nav>
+    <div class="logo">
+      <a href="{% url 'home' %}"><img src="../static/images/logo1.jpg" alt="logo">Quizz</a>
+    </div>
+
+    <div class="toggle">
+      <a href="#">
+        <ion-icon name="menu-outline"></ion-icon>
+      </a>
+    </div>
+    <ul class="menu">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About Us</a></li>
+      <li><a href="#">Quizz</a></li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+
+  </nav>
+  <!-------nav ends---------->
+  
+ <section>
+  <div class="container">
+    <div class="contactinfo">
+      <div >
+        <h2>Contact Information</h2>
+        <ul class="info">
+          <li>
+            <span><ion-icon name="location-outline"></ion-icon></span>
+            <br>
+            <span> 1020,<br>abc qwerty asdfgh,<br>M.P, India.<br></span>
+          </li>
+          <br>
+          <li>
+            <span><ion-icon name="mail-open-outline"></ion-icon></span> 
+            <br>
+            <span><b>abc@gmail.com</b></span>
+          </li>
+          <br>
+          <li>
+            <span><ion-icon name="call-outline"></ion-icon></span>
+            <br>
+            <span> 4444-555-666<br>9999-111-999</span>
+          </li>
+        </ul> 
+    </div>     
+      
+    </div>
+      <div class="contactform">
+        <h2><b>Send A Message</b></h2>
+        <div class="formBox">
+          <div class="inputBox w50">
+            <input type="text" required>
+            <span>First name</span>
+          </div>
+          <div class="inputBox w50">
+            <input type="text" required>
+            <span>Last name</span>
+          </div>
+          <div class="inputBox w50">
+            <input type="email" required>
+            <span>Email Address</span>
+          </div>
+          <div class="inputBox w50">
+            <input type="text" required>
+            <span>mobile number</span>
+          </div>
+          <div class="inputBox w100">
+            <textarea required></textarea>
+            <span>write your message here....</span>
+          </div>
+          <div class="inputBox w100">
+            <input type="submit" value="Send">           
+          </div>          
+      </div>      
+  </div>
+</section>
+
+  
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+</body>
+
+<!--footer starts---->
+<footer>
+  <div class="waves">
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
+    <ul class="social_icons">
+      <li><a href="https://www.facebook.com">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li><a href="https://www.twitter.com">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li><a href="https://www.linkedin.com">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li><a href="https://www.instagram.com">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <p>
+      <ion-icon name="at-outline">2022</ion-icon>2022 | Quizz | All Rights Reserved
+    </p>
+  </div>
+</footer>
+<!--footer ends--->
+
+</html>
