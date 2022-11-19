@@ -51,6 +51,10 @@ def sign_up(request):
     return render(request, 'signup.html')
 
 
+def contact_us(request):
+    return render(request, 'contact.html')
+
+
 def delete(request, id):
     item = UserDb.objects.get(id=id)
     item.delete()
