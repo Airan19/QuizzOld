@@ -74,8 +74,7 @@ section::before {
   display: flex;
   z-index: 1000;
   background: #121111;
-  box-shadow: 0 0 10px #84ea4d, 0 0 20px #84ea4d, 0 0 40px #84ea4d,
-    0 0 80px #84ea4d;
+  box-shadow: 0 0 10px #84ea4d, 0 0 20px #84ea4d, 0 0 40px #84ea4d;
 }
 .container .contactinfo {
   position: absolute;
