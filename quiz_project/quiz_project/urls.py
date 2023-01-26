@@ -27,14 +27,14 @@ urlpatterns = [
     path('accounts/', include('user.urls')),
     path('', views.landing_page, name='landing_page'),
     path('contact/', views.contact_us, name='contact_us'),
-    # path('login', views.home, name='home'),
+    path('home', views.home, name='home'),
     path('dashboard/', login_required(views.dashboard), name='dashboard'),
     path('about/',views.about_us,name='about'),
     path('sign-up/', views.sign_up, name='sign-up'),
     path('delete/<id>', login_required(views.delete), name='delete'),
 
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='home'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/login'), name='logout'),
     # path('profile/', login_required(UserView.as_view()), name='profile'),
     # path('signup/', sign_up, name='signup'),
 ]

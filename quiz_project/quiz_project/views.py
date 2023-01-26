@@ -19,6 +19,7 @@ def landing_page(request):
 
 def home(request):
     if request.method == 'POST':
+        print('in home, inside post')
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(request, email=email, password=password)
@@ -34,6 +35,7 @@ def home(request):
 
         return redirect('home')
         # return render(request, 'home.html', {'username':email, 'password':password})
+    print('inside home')
     return render(request, 'login.html')
 
 
