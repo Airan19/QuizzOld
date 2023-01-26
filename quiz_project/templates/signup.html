@@ -12,21 +12,22 @@
         <h1>Sign Up</h1>
         <h4>It's free and only takes a minute !</h4>
 
-        <form onsubmit="return checkPassword(this)" method="post" action="{% url 'sign-up' %}">
+        <form style="overflow:scroll;" onsubmit="return checkPassword(this)" method="post" action="{% url 'sign-up' %}">
             {% csrf_token %}
-            <label>First Name</label>
-            <input name="first_name" type="text" placeholder="">
-            <label>Last Name</label>
-            <input name="last_name" type="text" placeholder="">
-            <label>Email</label>
-            <input name="email" type="email" placeholder="">
-            <input name="password" id="password" type="password" placeholder="Password">
-            <input name="cpassword" id="cnf" type="password" placeholder="Confirm Password">
-            <br>
-            <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
-          <br>
-            <input type="submit"  value="Submit">
-
+<!--            <label>Name</label>-->
+<!--            <input name="name" type="text" placeholder="">-->
+<!--&lt;!&ndash;            <label>Last Name</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input name="last_name" type="text" placeholder="">&ndash;&gt;-->
+<!--            <label>Email</label>-->
+<!--            <input name="email" type="email" placeholder="">-->
+<!--            <input name="password" id="password" type="password" placeholder="Password">-->
+<!--            <input name="cpassword" id="cnf" type="password" placeholder="Confirm Password">-->
+<!--            <br>-->
+<!--            <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>-->
+<!--          <br>-->
+<!--            <input type="submit"  value="Submit">-->
+                {{ form.as_p }}
+            <button type="submit">Sign up</button>
         </form>
         <script>
             $(document).ready(function() {
@@ -45,7 +46,7 @@
     </p>
     <p class="para-2">Already have an account? <a href="Login.html">Login here</a></p>
     </div>
-    
-    
+
+
 </body>
 </html>

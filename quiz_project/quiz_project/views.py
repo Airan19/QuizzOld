@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from user.models import *
-from user.forms import UserForm
+from user.forms import UserForm, SignUpForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.views.generic.detail import DetailView
 
 
-def dashboard(request, user_id):
+def dashboard(request):
     # user = request.GET['user']
-    user = UserDb.objects.get(id=int(user_id))
+    user = request.user
     return render(request, 'index.html', {'user':user})
+
 
 def landing_page(request):
     return render(request, 'home.html')
@@ -18,12 +21,14 @@ def home(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user_db = UserDb.objects.filter(email=email).first()
-        print(user_db)
-        if user_db:
-            if user_db.password == password:
-                user_id = user_db.id
-                return redirect('dashboard', user_id)
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            login(request, user)
+        # user_db = User.objects.filter(email=email).first()
+        # if user_db:
+        #     if user_db.password == password:
+        #         user_id = user_db.id
+            return redirect('dashboard')
         else:
             messages.error(request, 'username or password not correct')
 
@@ -38,17 +43,19 @@ def about_us(request):
 
 def sign_up(request):
     if request.method == 'POST':
-        print(request.POST)
-        return
-        form = UserForm(request.POST or None)
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            print(UserDb.objects.all())
-            form.save()
-            print(UserDb.objects.all())
-            messages.success(request, ('Successfully signed-up.'))
-            user = 'dummy'
-            return render(request, 'index.html', {'user': user})
-    return render(request, 'signup.html')
+            user = form.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(request, email=user.email, password=raw_password)
+            if user is not None:
+                login(request, user)
+            else:
+                print("user is not authenticated")
+            return redirect('dashboard')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 
 def contact_us(request):
@@ -56,7 +63,12 @@ def contact_us(request):
 
 
 def delete(request, id):
-    item = UserDb.objects.get(id=id)
+    item = User.objects.get(id=id)
     item.delete()
     messages.success(request, 'User removed successfully.')
     return redirect('home')
+
+
+# def logout(request):
+#     logout(request.user)
+#     return redirect('home')

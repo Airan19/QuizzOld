@@ -20,6 +20,7 @@
       <li><a href="#">QUIZ</a></li>
       <li><a href="#">LEADERBOARD</a></li>
       <li><a href="{% url 'delete' user.id %}">Delete User</a></li>
+      <li><a href="{% url 'logout' %}">LogOut</a></li>
       <li style="float: right">
         <a href="{% url 'about' %}" class="button" class="active">ABOUT</a>
       </li>
@@ -30,7 +31,7 @@
      {% endfor %}
     {% endif %}
     <div id="upper">
-      <h1>Welcome {{user.first_name}} {{user.last_name}}, this is the Dashboard now</h1>
+      <h1>Welcome {{user.name}}, this is the Dashboard now</h1>
 
       <!--
         <ol>

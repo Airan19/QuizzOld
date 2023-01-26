@@ -17,15 +17,25 @@ from django.contrib import admin
 from . import views   ## './dot' here means the file we are importing is in the same folder.
 from django.urls import path , include
 # from user import views as v
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('user.urls')),
     path('', views.landing_page, name='landing_page'),
-    path('contact', views.contact_us, name='contact_us'),
-    path('login', views.home, name='home'),
-    path('dashboard/<user_id>', views.dashboard, name='dashboard'),
-    path('about/',include('user.urls'),name='about'),
+    path('contact/', views.contact_us, name='contact_us'),
+    # path('login', views.home, name='home'),
+    path('dashboard/', login_required(views.dashboard), name='dashboard'),
+    path('about/',views.about_us,name='about'),
     path('sign-up/', views.sign_up, name='sign-up'),
-    path('delete/<id>', views.delete, name='delete'),
+    path('delete/<id>', login_required(views.delete), name='delete'),
+
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='home'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+    # path('profile/', login_required(UserView.as_view()), name='profile'),
+    # path('signup/', sign_up, name='signup'),
 ]
 
