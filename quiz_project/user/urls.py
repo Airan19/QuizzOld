@@ -8,14 +8,14 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 
-from .views import UserView, signup, landing_page
+# from .views import UserView, signup, landing_page
 
 app_name = 'user'
 
 urlpatterns = [
-    path('', landing_page, name='landing_page'),
+    # path('', landing_page, name='landing_page'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='/accounts/login'), name='logout'),
-    path('profile/',  login_required(UserView.as_view()), name='profile'),
-    path('signup/', signup, name='signup')
+    # path('profile/',  login_required(UserView.as_view()), name='profile'),
+    # path('signup/', signup, name='signup')
 ]
