@@ -5,11 +5,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width" />
-    {% load socialaccount %}
-    {% load static %}
+    {% load socialaccount %} {% load static %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <!--    Font Awesome-->
-    <script src="https://kit.fontawesome.com/00e297be53.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/00e297be53.js"
+      crossorigin="anonymous"
+    ></script>
 
     <script
       type="module"
@@ -18,77 +20,89 @@
   </head>
 
   <body>
-    <div class="beforesplash">
-      <img src="../static/images/home1.webp" />
-    </div>
+    <!-- for nav bar -->
+    <nav>
+      <div class="logo">
+        <a href="{% url 'home' %}">
+          <img src="../static/images/logo1.jpg" alt="logo" />Quizz</a
+        >
+      </div>
 
-    <div class="splash">
-      <div class="fade-in">
-        <!-- for nav bar -->
-        <nav>
-          <div class="logo">
-            <a href="{% url 'home' %}">
-              <img src="../static/images/logo1.jpg" alt="logo" />Quizz</a
+      <div class="toggle">
+        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+      </div>
+      <ul class="menu">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="#">Quizz</a></li>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-------nav ends---------->
+
+    <div class="bgimg">
+      <img src="../static/images/home2.jpg" />
+
+      <!--form starts-->
+
+      <div class="loginbox">
+        <h1>LOGIN</h1>
+
+        <form id="submitForm" action="{% url 'home' %}" method="post">
+          {% csrf_token %} {% if messages%} {% for message in messages %}
+          <h3 style="color: white">{{message}}</h3>
+          {% endfor %} {% endif %}
+
+          <div class="txt_field">
+            <div class="user">
+              <input id="email" name="email" type="email" required />
+              <label class="user" for="email">Username</label>
+            </div>
+          </div>
+          <div class="txt_field">
+            <div class="passwd">
+              <input id="password" name="password" type="password" required />
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <br />
+          <div class="sbtn">
+            <button type="submit">Login</button>
+          </div>
+          <br />
+          <div class="pass"><a href="#">Forgot Password ??</a></div>
+          <br />
+          <button style="margin: 5px 2px; border-radius: 5px">
+            <a
+              href="{% provider_login_url 'google'%}?next=/dashboard"
+              style="background-color: black; color: white; font-size: 20px"
             >
-          </div>
-
-          <div class="toggle">
-            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
-          </div>
-          <ul class="menu">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="#">Quizz</a></li>
-            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
-          </ul>
-        </nav>
-        <!-------nav ends---------->
-
-        <div class="bgimg">
-          <img src="../static/images/home2.jpg" />
-        <!--form starts-->
-        <div class="loginbox">
-         <h1>Login Here</h1>
-          <form id="submitForm" action="{% url 'home' %}" method="post">
-            {% csrf_token %}
-            {% if  messages%}
-            {% for message in messages %}
-            <h3 style="color:white;">{{message}}</h3>
-            {% endfor %}
-            {% endif %}
-            <label for="email">Username</label>
-            <input id="email"  name="email" type="email" placeholder="Enter email" required>
-            <label for="password">Password</label>
-            <input id="password"  name="password" type="password" placeholder="Enter password" required>
-            <button type="submit"> Login </button>
-            <button  style="margin:5px 2px; border-radius:5px; ">
-              <a href="{% provider_login_url 'google'%}?next=/dashboard"  style="background-color: black; color:white; font-size: 20px;">
-              <i class="fab fa-google" ></i>
-<!--                <i class="fa-brands fa-google">Login with Google</i>-->
+              <i class="fab fa-google"></i>
+              <!--  <i class="fa-brands fa-google">Login with Google</i>-->
               Login with Google
             </a>
-            </button>
-            <br>
-            <a href="#">Lost your password?</a><br>
-            <p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
-            <p class="para-2">Email -- > test@gmail.com</p>
-            <p class="para-2">Password -- > bharatpro</p>
-<!--            </div>-->
-
-          </form>
-<!--form ends--->
-        </div>
+          </button>
+          <br />
+          <br />
+          <div class="signup_link">
+            Not have an account ??<a href="{% url 'sign-up' %}">
+              <br />SignUp Here</a
+            >
+          </div>
+        </form>
       </div>
+
+      <!--form ends--->
     </div>
-  </div>
+
     <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
   </body>
 
   <!--footer starts---->
+
   <footer>
-    <!--<div class="splash">
-    <div class="fade-in">-->
     <div class="waves">
       <div class="wave" id="wave1"></div>
       <div class="wave" id="wave2"></div>
@@ -122,5 +136,6 @@
       </p>
     </div>
   </footer>
+
   <!--footer ends--->
 </html>

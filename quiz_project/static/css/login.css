@@ -19,7 +19,7 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  background: url(../static/images/home1.webp);
+  /*background:url(assets/images/home4.webp);*/
   z-index: -10;
 }
 .beforesplash img {
@@ -77,44 +77,42 @@ nav a:hover {
   font-size: 30px;
   display: none;
 }
+
 .bgimg img {
   width: 1350px;
   height: 780px;
-  background-position: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
 }
 
 .loginbox {
   width: 420px;
-  height: 420px;
+  height: 480px;
   background: rgba(0, 0, 0, 0.7);
-  top: 50%;
+  top: 480px;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 10px 30px;
+  padding: 70px 30px;
   border-radius: 10%;
 }
+
 h1 {
-  margin: 0;
-  padding: 0 0 20px;
+  margin-top: 1px;
+  padding: 0 0 5px;
   text-align: center;
   font-size: 22px;
   color: rgb(244, 249, 246);
 }
-.loginbox p {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
+.loginbox label,
+.pass,
+.signup_link {
+  color: white;
 }
 .loginbox input {
   width: 100%;
   margin-bottom: 20px;
 }
-.loginbox input[type="text"],
+.loginbox input[type="email"],
 input[type="password"] {
   border: none;
   border-bottom: 1px solid #fff;
@@ -124,28 +122,63 @@ input[type="password"] {
   color: #fff;
   font-size: 16px;
 }
-.loginbox input[type="submit"] {
+.loginbox .sbtn button {
+  margin-left: 30px;
+  width: 260px;
+  text-align: center;
+  font-weight: 22px;
+  border-radius: 50px;
+}
+
+.loginbox button[type="submit"] {
   border: none;
   outline: none;
   height: 40px;
-  background: #fb2525;
+  background: #28af70;
   color: #fff;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
-.loginbox input[type="submit"]:hover {
+.loginbox button[type="submit"]:hover {
   cursor: pointer;
-  background: #ffc107;
-  color: #000;
+  background: #0f1f29;
+  color: #fcfcfc;
+  box-shadow: 0 0 5px #6666ff, 0 0 10px #6666ff, 0 0 15px #6666ff;
 }
+
+.loginbox .txt_field label {
+  position: absolute;
+  left: 50px;
+  pointer-events: none;
+  font-size: 18px;
+  font-weight: 300px;
+  transition: 0.3s;
+}
+.loginbox .txt_field .user label {
+  bottom: 320px;
+}
+.loginbox .txt_field .passwd label {
+  bottom: 260px;
+}
+
+.loginbox .txt_field input:focus ~ label,
+.loginbox .txt_field input:valid ~ label {
+  transform: translateY(-20px);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #d86f94;
+}
+
 .loginbox a {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 20px;
   line-height: 20px;
-  color: darkgrey;
+  color: #dae297;
 }
 .loginbox a:hover {
-  color: #ffc107;
+  font-size: 20px;
+  color: #d78499;
 }
 .signup-box {
   width: 25%;
@@ -154,78 +187,32 @@ input[type="password"] {
   margin: auto;
   background-color: black;
   color: white;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-top: 10px;
 }
-.signup-box p {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-.signup-box input {
-  width: 100%;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-.signup-box input[type="text"],
-input[type="password"] {
-  border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
-  height: 40px;
-  color: #fff;
-  font-size: 16px;
-}
-.signup-box input[type="submit"] {
-  border: none;
-  outline: none;
-  height: 40px;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-.signup-box input[type="submit"]:hover {
-  cursor: pointer;
-  background: #ffc107;
-  color: #000;
-}
-.signup-box a {
-  text-decoration: none;
-  font-size: 12px;
-  line-height: 10px;
-  color: darkgrey;
-}
-.signup-box a:hover {
-  color: #ffc107;
-}
 h1 {
+  font-size: 40px;
   text-align: center;
-  padding-top: 19px;
-  color: rgb(165, 124, 124);
+  color: rgb(242, 232, 232);
 }
 h4 {
   text-align: center;
-  margin-bottom: 10px;
 }
 #submitForm {
   width: 300px;
   margin-left: 20px;
 }
 #submitForm label {
-  color: #f3f7f8;
   display: flex;
   margin-top: 20px;
   font-size: 18px;
-  border-bottom: 10px;
 }
 form input,
 #submitForm input {
   width: 100%;
-  padding: 3px;
+  padding: 7px;
   border: none;
-  border-bottom: 10px solid white;
+  border-bottom: 1px solid white;
   border-radius: 6px;
   outline: none;
 }
@@ -243,21 +230,21 @@ p {
   text-align: center;
   padding-top: 20px;
   font-size: 15px;
-  margin-top: 10px;
 }
 
 .para-2 {
   text-align: center;
   color: white;
   font-size: 15px;
-  margin-top: 10px;
+  margin-top: -10px;
 }
+
 .para-2 a {
   color: #49c1a2;
 }
 
 footer {
-  margin-top: 220px;
+  margin-top: 30px;
   position: absolute;
   width: 100%;
   background: #3498db;
