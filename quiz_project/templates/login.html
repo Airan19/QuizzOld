@@ -5,9 +5,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width" />
-
+    {% load socialaccount %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <!--    Font Awesome-->
+    <script src="https://kit.fontawesome.com/00e297be53.js" crossorigin="anonymous"></script>
+
     <script
       type="module"
       src=" https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js "
@@ -37,7 +40,7 @@
             <li><a href="{% url 'about' %}">About Us</a></li>
             <li><a href="#">Quizz</a></li>
             <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
           </ul>
         </nav>
         <!-------nav ends---------->
@@ -51,20 +54,29 @@
             {% csrf_token %}
             {% if  messages%}
             {% for message in messages %}
-  <h3 style="color:white;">{{message}}</h3>
- {% endfor %}
-  {% endif %}
- <label for="email">Username</label>
-  <input id="email"  name="email" type="email" placeholder="Enter email" required>
-<label for="password">Password</label>
-  <input id="password"  name="password" type="password" placeholder="Enter password" required>
-            <button type="submit"> value="Login" </button>
-  <a href="#">Lost your password?</a><br>
-</form>
-<p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
-<p class="para-2">Email -- > test@gmail.com</p>
-<p class="para-2">Password -- > bharatpro</p>
-</div>
+            <h3 style="color:white;">{{message}}</h3>
+            {% endfor %}
+            {% endif %}
+            <label for="email">Username</label>
+            <input id="email"  name="email" type="email" placeholder="Enter email" required>
+            <label for="password">Password</label>
+            <input id="password"  name="password" type="password" placeholder="Enter password" required>
+            <button type="submit"> Login </button>
+            <button  style="margin:5px 2px; border-radius:5px; ">
+              <a href="{% provider_login_url 'google'%}?next=/dashboard"  style="background-color: black; color:white; font-size: 20px;">
+              <i class="fab fa-google" ></i>
+<!--                <i class="fa-brands fa-google">Login with Google</i>-->
+              Login with Google
+            </a>
+            </button>
+            <br>
+            <a href="#">Lost your password?</a><br>
+            <p class="para-2">Not have an account? <a href="{% url 'sign-up' %}">Sign Up Here</a></p>
+            <p class="para-2">Email -- > test@gmail.com</p>
+            <p class="para-2">Password -- > bharatpro</p>
+<!--            </div>-->
+
+          </form>
 <!--form ends--->
         </div>
       </div>

@@ -43,6 +43,11 @@ def about_us(request):
     return render(request, 'about.html')
 
 
+def signup_redirect(request):
+    messages.error(request, "Something wrong here, it may be that you already have account!")
+    return redirect("dashboard")
+
+
 def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)

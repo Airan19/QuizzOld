@@ -25,6 +25,8 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('user.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('social/signup/', views.signup_redirect, name='signup_redirect'),
     path('', views.landing_page, name='landing_page'),
     path('contact/', views.contact_us, name='contact_us'),
     path('home', views.home, name='home'),
