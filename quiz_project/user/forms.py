@@ -1,5 +1,6 @@
 from django import forms
 from .models import User, Options, SetofQuestions
+from .models import User
 
 
 class UserForm(forms.ModelForm):
@@ -20,7 +21,7 @@ class QuestionsForm(forms.ModelForm):
         fields = ['question', 'answer', 'options', 'tags', 'date_created']
 
 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import User
 
 

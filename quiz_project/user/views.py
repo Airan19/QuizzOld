@@ -1,20 +1,20 @@
-# # from django.shortcuts import render
-# # # from django.http import HttpResponse
-# #
-# # def about_view(request,*args,**kwargs):
-# #   return render(request,"about.html",{})
-# #
-# # #def index(request):
-# # #    return HttpResponse("Hello world!")
-# # # Create your views here.
+# from django.shortcuts import render
+# # from django.http import HttpResponse
 #
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import login, authenticate
-# from django.views.generic.detail import DetailView
+# def about_view(request,*args,**kwargs):
+#   return render(request,"about.html",{})
 #
-# from .forms import SignUpForm
-#
-#
+# #def index(request):
+# #    return HttpResponse("Hello world!")
+# # Create your views here.
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.views.generic.detail import DetailView
+
+from .forms import SignUpForm
+
+
 # class UserView(DetailView):
 #   template_name = 'users/profile.html'
 #

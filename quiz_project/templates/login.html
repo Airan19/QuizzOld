@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>login-Page | Quizz</title>
+    <title>Login-Page | Quizz</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width" />
-    {% load socialaccount %} {% load static %}
+    {% load socialaccount %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <!--    Font Awesome-->
     <script
       src="https://kit.fontawesome.com/00e297be53.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script
       type="module"
@@ -51,9 +52,12 @@
         <h1>LOGIN</h1>
 
         <form id="submitForm" action="{% url 'home' %}" method="post">
-          {% csrf_token %} {% if messages%} {% for message in messages %}
+          {% csrf_token %}
+          {% if messages%}
+          {% for message in messages %}
           <h3 style="color: white">{{message}}</h3>
-          {% endfor %} {% endif %}
+          {% endfor %}
+          {% endif %}
 
           <div class="txt_field">
             <div class="user">
@@ -72,19 +76,17 @@
             <button type="submit">Login</button>
           </div>
           <br />
-          <div class="pass"><a href="#">Forgot Password ??</a></div>
-          <br />
           <button style="margin: 5px 2px; border-radius: 5px">
-            <a
-              href="{% provider_login_url 'google'%}?next=/dashboard"
-              style="background-color: black; color: white; font-size: 20px"
-            >
+            <a href="{% provider_login_url 'google'%}?next=/dashboard"
+              style="background-color: black; color: white; font-size: 20px">
               <i class="fab fa-google"></i>
-              <!--  <i class="fa-brands fa-google">Login with Google</i>-->
               Login with Google
             </a>
           </button>
+          <div class="pass"><a href="{% url 'password_reset' %}">Forgot Password ??</a></div>
           <br />
+          <br />
+          <div class="g-recaptcha" data-sitekey="6LcLsTMkAAAAAHJGoknHSpdK-P_e5hWrKBLJnxdQ"></div>
           <br />
           <div class="signup_link">
             Not have an account ??<a href="{% url 'sign-up' %}">
