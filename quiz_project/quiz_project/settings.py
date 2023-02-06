@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -51,6 +50,11 @@ INSTALLED_APPS = [
 
 SITE_ID = 2
 
+
+RECAPTCHA_PUBLIC_KEY = '6LcLsTMkAAAAAHJGoknHSpdK-P_e5hWrKBLJnxdQ'
+RECAPTCHA_PRIVATE_KEY = '6LcLsTMkAAAAAC0EZfysj0IMFTwjhtYLJHa97XKo'
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
@@ -59,6 +63,13 @@ ACCOUNT_EMAIL_VERFICATION = 'none'
 SOCIALACCOUNT_QUERY_EMAIL = True
 ACCOUNT_LOGOUT_ON_GET= True
 ACCOUNT_UNIQUE_EMAIL = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'adc19062001@gmail.com'
+EMAIL_HOST_PASSWORD = 'ctoohshzygcwgycn'
+EMAIL_USE_TLS = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

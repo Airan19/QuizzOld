@@ -5,7 +5,8 @@ from user.forms import UserForm, SignUpForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.views.generic.detail import DetailView
-
+from django.conf import settings
+import requests
 
 def dashboard(request):
     # user = request.GET['user']
@@ -19,23 +20,30 @@ def landing_page(request):
 
 def home(request):
     if request.method == 'POST':
-        print('in home, inside post')
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-        # user_db = User.objects.filter(email=email).first()
-        # if user_db:
-        #     if user_db.password == password:
-        #         user_id = user_db.id
-            return redirect('dashboard')
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        data = {
+            'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            'response': recaptcha_response
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        result = r.json()
+        ''' End reCAPTCHA validation '''
+        if result['success']:
+            messages.success(request, 'New comment added with success!')
+        # return redirect('comments')
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+            else:
+                messages.error(request, 'username or password not correct')
         else:
-            messages.error(request, 'username or password not correct')
+            messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
         return redirect('home')
-        # return render(request, 'home.html', {'username':email, 'password':password})
-    print('inside home')
     return render(request, 'login.html')
 
 
